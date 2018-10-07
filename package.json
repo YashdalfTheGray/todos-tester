@@ -1,0 +1,19 @@
+{
+  "name": "todos-tester",
+  "version": "1.0.0",
+  "description": "Test package for the todos app using Puppeteer, Jest, Javascript and Docker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YashdalfTheGray/todos-tester.git"
+  },
+  "author": "Yash Kulshrestha",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/YashdalfTheGray/todos-tester/issues"
+  },
+  "homepage": "https://github.com/YashdalfTheGray/todos-tester#readme"
+}
