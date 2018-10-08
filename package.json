@@ -15,5 +15,15 @@
   "bugs": {
     "url": "https://github.com/YashdalfTheGray/todos-tester/issues"
   },
-  "homepage": "https://github.com/YashdalfTheGray/todos-tester#readme"
+  "homepage": "https://github.com/YashdalfTheGray/todos-tester#readme",
+  "dependencies": {
+    "@types/faker": "^4.1.4",
+    "@types/jest": "^23.3.3",
+    "@types/puppeteer": "^1.9.0",
+    "faker": "^4.1.0",
+    "is-docker": "^1.1.0",
+    "jest": "^23.6.0",
+    "puppeteer": "^1.9.0",
+    "typescript": "^3.1.1"
+  }
 }
