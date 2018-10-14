@@ -14,7 +14,9 @@ export async function screenshot(page: puppeteer.Page, path: string) {
     : null;
 }
 
-export async function getBrowser(otherOptions: puppeteer.LaunchOptions) {
+export async function getBrowser(
+  otherOptions?: puppeteer.LaunchOptions
+): Promise<puppeteer.Browser> {
   let options: puppeteer.LaunchOptions;
 
   if (process.env.DEBUG === 'interactive' && !isDocker()) {
@@ -24,4 +26,14 @@ export async function getBrowser(otherOptions: puppeteer.LaunchOptions) {
   }
 
   return puppeteer.launch(Object.assign(options, otherOptions));
+}
+
+export async function initialize(browser: puppeteer.Browser) {
+  const { TEST_URL } = process.env;
+  const page = await browser.newPage();
+
+  await page.goto(TEST_URL);
+  await page.setViewport({ height: 768, width: 1200 });
+
+  return page;
 }
