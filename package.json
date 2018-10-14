@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/YashdalfTheGray/todos-tester#readme",
   "dependencies": {
+    "@types/dotenv": "^4.0.3",
     "@types/faker": "^4.1.4",
     "@types/jest": "^23.3.3",
     "@types/puppeteer": "^1.9.0",
