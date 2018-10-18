@@ -2,11 +2,12 @@
   "compilerOptions": {
     "module": "commonjs",
     "esModuleInterop": true,
+    "declaration": false,
     "target": "ESNext",
     "noImplicitAny": true,
     "moduleResolution": "node",
-    "sourceMap": true,
-    "outDir": "dist",
+    "sourceMap": false,
+    "outDir": "build",
     "baseUrl": ".",
     "paths": {
       "*": ["node_modules/*"]
