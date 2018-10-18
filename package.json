@@ -4,7 +4,10 @@
   "description": "Test package for the todos app using Puppeteer, Jest, Javascript and Docker",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "tsc",
+    "test": "echo \"This is where the jest tests will run\"",
+    "start": "npm test",
+    "clean": "npx rimraf build"
   },
   "repository": {
     "type": "git",
@@ -19,6 +22,7 @@
   "dependencies": {
     "@types/dotenv": "^4.0.3",
     "@types/faker": "^4.1.4",
+    "@types/is-docker": "^1.1.0",
     "@types/jest": "^23.3.3",
     "@types/puppeteer": "^1.9.0",
     "dotenv": "^6.1.0",
