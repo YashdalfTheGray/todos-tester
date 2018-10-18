@@ -2,7 +2,7 @@ import { Browser } from 'puppeteer';
 import { resolve } from 'path';
 import * as faker from 'faker';
 
-import { getBrowser, initialize, screenshot } from '../util';
+import { getBrowser, initialize, screenshot } from './util';
 
 let browser: Browser;
 
