@@ -3,10 +3,10 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "declaration": false,
-    "target": "ESNext",
+    "target": "esnext",
     "noImplicitAny": true,
     "moduleResolution": "node",
-    "sourceMap": false,
+    "sourceMap": true,
     "outDir": "build",
     "baseUrl": ".",
     "paths": {
