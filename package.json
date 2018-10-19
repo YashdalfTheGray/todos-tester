@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "pretest": "tsc",
-    "test": "echo \"This is where the jest tests will run\"",
+    "test": "jest",
     "start": "npm test",
     "clean": "npx rimraf build"
   },
