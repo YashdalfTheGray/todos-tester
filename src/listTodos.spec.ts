@@ -1,33 +1,29 @@
-import { Browser } from 'puppeteer';
 import { resolve } from 'path';
+import puppeteer from 'puppeteer';
 
-import { getBrowser, initialize, screenshot, setupEnvironment } from './util';
+import { getBrowser, openApp, screenshot, setupEnvironment } from './util';
 
-let browser: Browser;
+let browser: puppeteer.Browser;
 
 jest.setTimeout(10000);
 
-beforeEach(async () => {
+beforeAll(async () => {
   setupEnvironment();
   browser = await getBrowser();
 });
 
-afterEach(async () => await browser.close());
+afterAll(async () => browser.close());
 
 describe('list todos', () => {
   test('loads', async () => {
     const { TEST_URL } = process.env;
 
-    const page = await initialize(browser, TEST_URL);
-
+    const page = await openApp(browser, TEST_URL);
     await page.waitForSelector('div[data-test-id]');
-    const todos = await page.$$('div[data-test-id]');
-
     await screenshot(
       page,
       resolve(process.cwd(), './artifacts/todos-list.png')
     );
-
-    expect(todos.length).not.toBe(0);
+    await page.close();
   });
 });
