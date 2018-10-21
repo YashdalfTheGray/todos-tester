@@ -1,20 +1,24 @@
 import { Browser } from 'puppeteer';
 import { resolve } from 'path';
-import * as faker from 'faker';
 
-import { getBrowser, initialize, screenshot } from './util';
+import { getBrowser, initialize, screenshot, setupEnvironment } from './util';
 
 let browser: Browser;
 
+jest.setTimeout(10000);
+
 beforeEach(async () => {
+  setupEnvironment();
   browser = await getBrowser();
 });
 
-afterEach(() => browser.close());
+afterEach(async () => await browser.close());
 
 describe('list todos', () => {
   test('loads', async () => {
-    const page = await initialize(browser);
+    const { TEST_URL } = process.env;
+
+    const page = await initialize(browser, TEST_URL);
 
     await page.waitForSelector('div[data-test-id]');
     const todos = await page.$$('div[data-test-id]');

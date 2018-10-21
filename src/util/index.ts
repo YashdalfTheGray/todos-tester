@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-import * as puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer';
 import isDocker from 'is-docker';
 
 export function setupEnvironment() {
@@ -28,11 +28,10 @@ export async function getBrowser(
   return puppeteer.launch(Object.assign(options, otherOptions));
 }
 
-export async function initialize(browser: puppeteer.Browser) {
-  const { TEST_URL } = process.env;
+export async function initialize(browser: puppeteer.Browser, url: string) {
   const page = await browser.newPage();
 
-  await page.goto(TEST_URL);
+  await page.goto(url);
   await page.setViewport({ height: 768, width: 1200 });
 
   return page;
