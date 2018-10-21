@@ -4,10 +4,12 @@
   "description": "Test package for the todos app using Puppeteer, Jest, Javascript and Docker",
   "main": "index.js",
   "scripts": {
-    "pretest": "tsc",
+    "pretest": "npm run clean-build && tsc",
     "test": "jest",
     "start": "npm test",
-    "clean": "npx rimraf build"
+    "clean-build": "npx rimraf build",
+    "clean-artifacts": "npx rimraf artifacts/**/*",
+    "clean": "npm run clean-build && npm run clean-artifacts"
   },
   "repository": {
     "type": "git",
@@ -29,14 +31,15 @@
     "faker": "^4.1.0",
     "is-docker": "^1.1.0",
     "jest": "^23.6.0",
-    "prettier": "^1.14.3",
     "puppeteer": "^1.9.0",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.15.0",
-    "tslint-config-standard": "^8.0.1",
     "typescript": "^3.1.1"
   },
   "devDependencies": {
-    "tslint-eslint-rules": "^5.4.0"
+    "prettier": "^1.14.3",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-plugin-prettier": "^2.0.0"
   }
 }
