@@ -2,6 +2,18 @@ import * as dotenv from 'dotenv';
 import isDocker from 'is-docker';
 import puppeteer from 'puppeteer';
 
+export {
+  initFirebase,
+  IFirebaseTodo,
+  createTodo,
+  getAllTodos,
+  getFirestore,
+  getFirestoreCollection,
+  markTodoDone,
+  markTodoUndone,
+  updateTodo
+} from './firebase';
+
 export function setupEnvironment() {
   if (!isDocker()) {
     dotenv.config();

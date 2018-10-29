@@ -9,7 +9,7 @@ export interface IFirebaseTodo {
   doneAt?: Date;
 }
 
-export default function initFirebase() {
+export function initFirebase() {
   const {
     FIREBASE_API_KEY,
     FIREBASE_PROJECT_ID,
