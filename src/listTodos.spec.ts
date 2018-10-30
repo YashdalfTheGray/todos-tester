@@ -28,7 +28,7 @@ afterAll(async () => {
 });
 
 describe('list todos', () => {
-  test('loads', async () => {
+  test('loads [@todoslist, @readonly]', async () => {
     const { TEST_URL } = process.env;
     const todos = await getAllTodos();
 
@@ -44,7 +44,7 @@ describe('list todos', () => {
     await page.close();
   });
 
-  test('only shows open todos when toggled', async () => {
+  test('only shows open todos when toggled [@todoslist, @readonly]', async () => {
     const { TEST_URL } = process.env;
     const filteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
 
