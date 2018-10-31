@@ -5,6 +5,7 @@ import puppeteer from 'puppeteer';
 export {
   initFirebase,
   IFirebaseTodo,
+  deleteTodo,
   createTodo,
   getAllTodos,
   getFirestore,

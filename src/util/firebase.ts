@@ -84,3 +84,8 @@ export async function updateTodo(id: string, content: string) {
   const collection = getFirestoreCollection('todos');
   return collection.doc(id).update({ content, modifiedAt: new Date() });
 }
+
+export async function deleteTodo(id: string) {
+  const collection = getFirestoreCollection('todos');
+  return collection.doc(id).delete();
+}
