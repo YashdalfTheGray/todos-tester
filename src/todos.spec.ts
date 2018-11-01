@@ -16,21 +16,21 @@ import {
 } from './util';
 
 let browser: puppeteer.Browser;
-// let todo: firestore.DocumentReference;
+let todo: firestore.DocumentReference;
 
 jest.setTimeout(10000);
 
 beforeAll(async () => {
   setupEnvironment();
   await initFirebase();
-  // todo = await createTodo('test todo');
+  todo = await createTodo('test todo');
   browser = await getBrowser();
 });
 
 afterAll(async () => {
-  const firestoreDb = await getFirestore();
-  firestoreDb.disableNetwork();
-  // await deleteTodo(todo.id);
+  await deleteTodo(todo.id);
+  const firestoreDb = getFirestore();
+  await firestoreDb.disableNetwork();
   return browser.close();
 });
 
