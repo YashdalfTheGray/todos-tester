@@ -40,6 +40,7 @@ describe('list todos', () => {
     const todos = await getAllTodos();
 
     const page = await openApp(browser, TEST_URL);
+    await page.waitForSelector('[data-test-id="loading-snackbar"');
     await page.waitForSelector('div[data-test-id]');
     const todosDisplayed = await page.$$('div[data-test-id]');
     await screenshot(
@@ -56,6 +57,7 @@ describe('list todos', () => {
     const filteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
 
     const page = await openApp(browser, TEST_URL);
+    await page.waitForSelector('[data-test-id="loading-snackbar"');
     await page.waitForSelector('div[data-test-id]');
 
     await page.click('[data-test-id="visibility-toggle"] input');
@@ -79,6 +81,7 @@ describe('todo', () => {
     const page = await openApp(browser, TEST_URL);
     await page.waitForSelector('div[data-test-id]');
     await page.click(`[data-test-id="${todo.id}-mark-done"]`);
+    await page.waitForSelector('[data-test-id="loading-snackbar"');
     await screenshot(page, resolve(process.cwd(), './artifacts/todo-done.png'));
 
     // expect(todosDisplayed).toHaveLength(todos.length);
