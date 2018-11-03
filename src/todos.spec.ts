@@ -77,7 +77,7 @@ describe('list todos', () => {
 describe('todo', () => {
   test('marks itself done [@todo]', async () => {
     const { TEST_URL } = process.env;
-    const todos = await getAllTodos();
+    const prevFilteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
 
     const page = await openApp(browser, TEST_URL);
     await waitForNotLoading(page);
@@ -86,7 +86,8 @@ describe('todo', () => {
     await waitForNotLoading(page);
     await screenshot(page, resolve(process.cwd(), './artifacts/todo-done.png'));
 
-    // expect(todosDisplayed).toHaveLength(todos.length);
+    const currFilteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
+    expect(currFilteredTodos).toHaveLength(prevFilteredTodos.length - 1);
     await page.close();
   });
 });
