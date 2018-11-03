@@ -46,3 +46,14 @@ export async function screenshot(page: puppeteer.Page, path: string) {
     ? page.screenshot({ path, fullPage: true })
     : null;
 }
+
+export async function waitForNotLoading(
+  page: puppeteer.Page,
+  selector: string = '[data-test-id="loading-snackbar"]'
+) {
+  await page.waitForSelector(selector);
+  await page.waitForSelector(selector, {
+    hidden: true
+  });
+  return page;
+}
