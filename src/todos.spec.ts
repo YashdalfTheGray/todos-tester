@@ -10,6 +10,8 @@ import {
   getBrowser,
   getFirestore,
   initFirebase,
+  markTodoDone,
+  markTodoUndone,
   openApp,
   screenshot,
   setupEnvironment,
@@ -88,6 +90,28 @@ describe('todo', () => {
 
     const currFilteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
     expect(currFilteredTodos).toHaveLength(prevFilteredTodos.length - 1);
+    await page.close();
+    await markTodoUndone(todo.id);
+  });
+
+  test('marks itself undone [@todo]', async () => {
+    const { TEST_URL } = process.env;
+    const prevFilteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
+
+    await markTodoDone(todo.id);
+    const page = await openApp(browser, TEST_URL);
+    await waitForNotLoading(page);
+    await page.waitForSelector('div[data-test-id]');
+    await page.waitForSelector(`[data-test-id="${todo.id}-mark-undone"]`);
+    await page.click(`[data-test-id="${todo.id}-mark-undone"]`);
+    await waitForNotLoading(page);
+    await screenshot(
+      page,
+      resolve(process.cwd(), './artifacts/todo-undone.png')
+    );
+
+    const currFilteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
+    expect(currFilteredTodos).toHaveLength(prevFilteredTodos.length);
     await page.close();
   });
 });
