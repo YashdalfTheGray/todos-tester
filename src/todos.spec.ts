@@ -114,4 +114,25 @@ describe('todo', () => {
     expect(currFilteredTodos).toHaveLength(prevFilteredTodos.length);
     await page.close();
   });
+
+  test('can edit itself [@todo]', async () => {
+    const { TEST_URL } = process.env;
+    const prevFilteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
+
+    const page = await openApp(browser, TEST_URL);
+    await waitForNotLoading(page);
+    await page.waitForSelector('div[data-test-id]');
+    await page.waitForSelector(`[data-test-id="${todo.id}-edit-todo"]`);
+    await page.click(`[data-test-id="${todo.id}-edit-todo"]`);
+    await screenshot(
+      page,
+      resolve(process.cwd(), './artifacts/todo-edit-mode.png')
+    );
+
+    const todoHeading = await page.waitForSelector(
+      `[data-test-id="${todo.id}-edit-content"]`
+    );
+    expect(todoHeading).toBeDefined();
+    await page.close();
+  });
 });
