@@ -22,25 +22,25 @@
   },
   "homepage": "https://github.com/YashdalfTheGray/todos-tester#readme",
   "dependencies": {
-    "@types/dotenv": "^4.0.3",
+    "@types/dotenv": "^6.1.0",
     "@types/faker": "^4.1.4",
     "@types/is-docker": "^1.1.0",
-    "@types/jest": "^23.3.3",
-    "@types/puppeteer": "^1.9.0",
+    "@types/jest": "^23.3.9",
+    "@types/puppeteer": "^1.10.0",
     "dotenv": "^6.1.0",
     "faker": "^4.1.0",
-    "firebase": "^5.5.6",
+    "firebase": "^5.5.8",
     "is-docker": "^1.1.0",
     "jest": "^23.6.0",
-    "puppeteer": "^1.9.0",
-    "typescript": "^3.1.1"
+    "puppeteer": "^1.10.0",
+    "typescript": "^3.1.6"
   },
   "devDependencies": {
-    "prettier": "^1.14.3",
+    "prettier": "^1.15.2",
     "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.15.0",
+    "tslint-config-prettier": "^1.16.0",
     "tslint-config-standard": "^8.0.1",
     "tslint-eslint-rules": "^5.4.0",
-    "tslint-plugin-prettier": "^2.0.0"
+    "tslint-plugin-prettier": "^2.0.1"
   }
 }
