@@ -115,7 +115,7 @@ describe('todo', () => {
     await page.close();
   });
 
-  test('can edit itself [@todo]', async () => {
+  test('can go into edit mode [@todo]', async () => {
     const { TEST_URL } = process.env;
     const prevFilteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
 
@@ -127,6 +127,34 @@ describe('todo', () => {
     await screenshot(
       page,
       resolve(process.cwd(), './artifacts/todo-edit-mode.png')
+    );
+
+    const todoHeading = await page.waitForSelector(
+      `[data-test-id="${todo.id}-edit-content"]`
+    );
+    expect(todoHeading).toBeDefined();
+    await page.close();
+  });
+
+  test('can edit itself [@todo]', async () => {
+    const { TEST_URL } = process.env;
+    const prevFilteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
+
+    const page = await openApp(browser, TEST_URL);
+    await waitForNotLoading(page);
+    await page.waitForSelector('div[data-test-id]');
+    await page.waitForSelector(`[data-test-id="${todo.id}-edit-todo"]`);
+    await page.click(`[data-test-id="${todo.id}-edit-todo"]`);
+    await page.waitForSelector(
+      `[data-test-id="${todo.id}-edit-todo"] #todo-content`
+    );
+    await page.type(
+      `[data-test-id="${todo.id}-edit-todo"] #todo-content`,
+      'edited'
+    );
+    await screenshot(
+      page,
+      resolve(process.cwd(), './artifacts/todo-edited.png')
     );
 
     const todoHeading = await page.waitForSelector(
