@@ -115,7 +115,7 @@ describe('todo', () => {
     await page.close();
   });
 
-  test('can go into edit mode [@todo]', async () => {
+  test('can go into edit mode [@todo @readonly]', async () => {
     const { TEST_URL } = process.env;
     const prevFilteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
 
@@ -136,7 +136,7 @@ describe('todo', () => {
     await page.close();
   });
 
-  test('can edit itself [@todo]', async () => {
+  test.skip('can edit itself [@todo]', async () => {
     const { TEST_URL } = process.env;
     const prevFilteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
 
@@ -161,6 +161,24 @@ describe('todo', () => {
       `[data-test-id="${todo.id}-edit-content"]`
     );
     expect(todoHeading).toBeDefined();
+    await page.close();
+  });
+});
+
+describe('add todo', () => {
+  test('add dialog opens [@addtodo, @readonly]', async () => {
+    const { TEST_URL } = process.env;
+    const todos = await getAllTodos();
+
+    const page = await openApp(browser, TEST_URL);
+    await waitForNotLoading(page);
+    await page.waitForSelector('div[data-test-id]');
+    await page.waitForSelector('[data-test-id="add-todo"]');
+    await page.click('[data-test-id="add-todo"]');
+    await screenshot(
+      page,
+      resolve(process.cwd(), './artifacts/add-todo-dialog.png')
+    );
     await page.close();
   });
 });
