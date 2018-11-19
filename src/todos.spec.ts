@@ -175,9 +175,33 @@ describe('add todo', () => {
     await page.waitForSelector('div[data-test-id]');
     await page.waitForSelector('[data-test-id="add-todo"]');
     await page.click('[data-test-id="add-todo"]');
+    await page.waitForSelector('[data-test-id="add-todo-dialog"]');
     await screenshot(
       page,
       resolve(process.cwd(), './artifacts/add-todo-dialog.png')
+    );
+    await page.close();
+  });
+
+  test('add dialog validates [@addtodo, @readonly]', async () => {
+    const { TEST_URL } = process.env;
+    const todos = await getAllTodos();
+
+    const page = await openApp(browser, TEST_URL);
+    await waitForNotLoading(page);
+    await page.waitForSelector('div[data-test-id]');
+    await page.waitForSelector('[data-test-id="add-todo"]');
+    await page.click('[data-test-id="add-todo"]');
+    await page.waitForSelector('[data-test-id="add-todo-dialog"]');
+    await page.waitForSelector('[data-test-id="add-todo-dialog-input"]');
+    await page.type(
+      '[data-test-id="add-todo-dialog-input"] input',
+      'this is a test todo'
+    );
+    await page.click('[data-test-id="add-todo"] h2');
+    await screenshot(
+      page,
+      resolve(process.cwd(), './artifacts/filled-add-todo-dialog.png')
     );
     await page.close();
   });
