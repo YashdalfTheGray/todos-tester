@@ -205,4 +205,25 @@ describe('add todo', () => {
     );
     await page.close();
   });
+
+  test.only('add dialog empty does not validate [@addtodo, @readonly]', async () => {
+    const { TEST_URL } = process.env;
+    const todos = await getAllTodos();
+
+    const page = await openApp(browser, TEST_URL);
+    await waitForNotLoading(page);
+    await page.waitForSelector('div[data-test-id]');
+    await page.waitForSelector('[data-test-id="add-todo"]');
+    await page.click('[data-test-id="add-todo"]');
+    await page.waitForSelector('[data-test-id="add-todo-dialog"]');
+    await page.waitForSelector('[data-test-id="add-todo-dialog-input"]');
+    await page.click('[data-test-id="add-todo-dialog-input"] input');
+    await page.click('[data-test-id="add-todo-dialog"] h2');
+
+    await screenshot(
+      page,
+      resolve(process.cwd(), './artifacts/invalid-add-todo-dialog.png')
+    );
+    await page.close();
+  });
 });
