@@ -220,6 +220,15 @@ describe('add todo', () => {
     await page.click('[data-test-id="add-todo-dialog-input"] input');
     await page.click('[data-test-id="add-todo-dialog"] h2');
 
+    const dialogInvalid = await page.evaluate(() => {
+      return (
+        document
+          .querySelector('[data-test-id="add-todo-dialog-input"] input')
+          .getAttribute('aria-invalid') === 'true'
+      );
+    });
+
+    expect(dialogInvalid).toBeTruthy();
     await screenshot(
       page,
       resolve(process.cwd(), './artifacts/invalid-add-todo-dialog.png')
