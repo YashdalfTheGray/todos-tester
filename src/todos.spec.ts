@@ -198,7 +198,18 @@ describe('add todo', () => {
       '[data-test-id="add-todo-dialog-input"] input',
       'this is a test todo'
     );
-    await page.click('[data-test-id="add-todo"] h2');
+    await page.click('[data-test-id="add-todo-dialog"] h2');
+
+    const dialogInvalid = await page.evaluate(() => {
+      return (
+        document
+          .querySelector('[data-test-id="add-todo-dialog-input"] input')
+          .getAttribute('aria-invalid') === 'true'
+      );
+    });
+
+    expect(dialogInvalid).toBeFalsy();
+
     await screenshot(
       page,
       resolve(process.cwd(), './artifacts/filled-add-todo-dialog.png')
@@ -206,7 +217,7 @@ describe('add todo', () => {
     await page.close();
   });
 
-  test.only('add dialog empty does not validate [@addtodo, @readonly]', async () => {
+  test('add dialog empty does not validate [@addtodo, @readonly]', async () => {
     const { TEST_URL } = process.env;
     const todos = await getAllTodos();
 
