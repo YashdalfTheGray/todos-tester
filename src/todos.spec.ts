@@ -117,7 +117,6 @@ describe('todo', () => {
 
   test('can go into edit mode [@todo @readonly]', async () => {
     const { TEST_URL } = process.env;
-    const prevFilteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
 
     const page = await openApp(browser, TEST_URL);
     await waitForNotLoading(page);
@@ -138,7 +137,6 @@ describe('todo', () => {
 
   test.skip('can edit itself [@todo]', async () => {
     const { TEST_URL } = process.env;
-    const prevFilteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
 
     const page = await openApp(browser, TEST_URL);
     await waitForNotLoading(page);
@@ -168,7 +166,6 @@ describe('todo', () => {
 describe('add todo', () => {
   test('add dialog opens [@addtodo, @readonly]', async () => {
     const { TEST_URL } = process.env;
-    const todos = await getAllTodos();
 
     const page = await openApp(browser, TEST_URL);
     await waitForNotLoading(page);
@@ -185,7 +182,6 @@ describe('add todo', () => {
 
   test('add dialog validates [@addtodo, @readonly]', async () => {
     const { TEST_URL } = process.env;
-    const todos = await getAllTodos();
 
     const page = await openApp(browser, TEST_URL);
     await waitForNotLoading(page);
@@ -219,7 +215,6 @@ describe('add todo', () => {
 
   test('add dialog empty does not validate [@addtodo, @readonly]', async () => {
     const { TEST_URL } = process.env;
-    const todos = await getAllTodos();
 
     const page = await openApp(browser, TEST_URL);
     await waitForNotLoading(page);
