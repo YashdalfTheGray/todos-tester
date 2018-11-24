@@ -35,3 +35,12 @@ While running under Docker, you can't run in `interactive` mode but you can stil
 First, check if the tests ran successfully by running `docker inspect --format='{{.State.ExitCode}}' <name_set_in_run_command>`. This should return `0` if the tests were successful.
 
 Then you can run `docker diff <name_set_in_run_command>`. This command will compare the current filesystem of the container to the initial filesystem. You can also use `docker cp <name_set_in_run_command>:/usr/app/artifacts <path_on_host>` to copy the whole folder from the container to the local filesystem so that you can look at the screenshots.
+
+## Resources
+
+-   [Puppeteer Docs](https://pptr.dev/)
+-   [Jest API](https://facebook.github.io/jest/docs/en/getting-started.html)
+-   [Expect API](https://facebook.github.io/jest/docs/en/expect.html)
+-   [Faker Docs](https://github.com/marak/Faker.js/)
+-   [`docker run` options](https://docs.docker.com/engine/reference/commandline/run/)
+-   [Difference between Chromium and Chrome](https://www.howtogeek.com/202825/what%E2%80%99s-the-difference-between-chromium-and-chrome/)
