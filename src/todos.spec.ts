@@ -1,5 +1,6 @@
 import { resolve } from 'path';
 
+import { lorem } from 'faker';
 import { firestore } from 'firebase';
 import puppeteer from 'puppeteer';
 
@@ -27,7 +28,7 @@ jest.setTimeout(10000);
 beforeAll(async () => {
   setupEnvironment();
   await initFirebase();
-  todo = await createTodo('test todo');
+  todo = await createTodo(lorem.sentence(5));
   browser = await getBrowser();
 });
 
@@ -206,7 +207,7 @@ describe('add todo', () => {
     await page.waitForSelector('[data-test-id="add-todo-dialog-input"]');
     await page.type(
       '[data-test-id="add-todo-dialog-input"] input',
-      'this is a test todo'
+      lorem.sentence(5)
     );
     await page.click('[data-test-id="add-todo-dialog"] h2');
 
@@ -256,7 +257,7 @@ describe('add todo', () => {
     await page.close();
   });
 
-  test.skip('add dialog actually adds a todo [@addtodo]', async () => {
+  test('add dialog actually adds a todo [@addtodo]', async () => {
     const { TEST_URL } = process.env;
     const todos = await getAllTodos();
 
@@ -269,7 +270,7 @@ describe('add todo', () => {
     await page.waitForSelector('[data-test-id="add-todo-dialog-input"]');
     await page.type(
       '[data-test-id="add-todo-dialog-input"] input',
-      'this is a test todo'
+      lorem.sentence(5)
     );
     await page.click('[data-test-id="add-todo-dialog-create-button"]');
     await waitForNotLoading(page);
@@ -298,7 +299,7 @@ describe('add todo', () => {
     await page.waitForSelector('[data-test-id="add-todo-dialog-input"]');
     await page.type(
       '[data-test-id="add-todo-dialog-input"] input',
-      'this is a test todo'
+      lorem.sentence(5)
     );
     await page.click('[data-test-id="add-todo-dialog"] h2');
     await page.click('[data-test-id="add-todo-dialog-cancel-button"]');
