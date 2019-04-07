@@ -32,6 +32,9 @@
       "git add"
     ]
   },
+  "jest": {
+    "testRegex": "build/(.+)\\.spec\\.jsx?$"
+  },
   "dependencies": {
     "@types/dotenv": "^6.1.1",
     "@types/faker": "^4.1.5",

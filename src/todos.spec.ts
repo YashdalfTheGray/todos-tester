@@ -170,7 +170,9 @@ describe('add todo', () => {
     newTodos: IFirebaseTodo[],
     oldTodos: IFirebaseTodo[]
   ) {
-    const todoDiff = newTodos.filter(t => oldTodos.includes(t));
+    const todoDiff = newTodos.filter(
+      nt => !oldTodos.map(ot => ot.id).includes(nt.id)
+    );
 
     if (todoDiff.length === 0) {
       return;
@@ -257,7 +259,7 @@ describe('add todo', () => {
     await page.close();
   });
 
-  test('add dialog actually adds a todo [@addtodo]', async () => {
+  test.only('add dialog actually adds a todo [@addtodo]', async () => {
     const { TEST_URL } = process.env;
     const todos = await getAllTodos();
 
