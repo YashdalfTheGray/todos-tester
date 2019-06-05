@@ -38,25 +38,24 @@
   "dependencies": {
     "@types/dotenv": "^6.1.1",
     "@types/faker": "^4.1.5",
-    "@types/is-docker": "^1.1.0",
-    "@types/jest": "^24.0.11",
-    "@types/puppeteer": "^1.12.3",
-    "dotenv": "^7.0.0",
+    "@types/jest": "^24.0.13",
+    "@types/puppeteer": "^1.12.4",
+    "dotenv": "^8.0.0",
     "faker": "^4.1.0",
-    "firebase": "^5.9.3",
-    "is-docker": "^1.1.0",
-    "jest": "^24.7.1",
-    "puppeteer": "^1.14.0"
+    "firebase": "^6.1.0",
+    "is-docker": "^2.0.0",
+    "jest": "^24.8.0",
+    "puppeteer": "^1.17.0"
   },
   "devDependencies": {
-    "husky": "^1.3.1",
-    "lint-staged": "^8.1.5",
-    "prettier": "^1.16.4",
-    "tslint": "^5.15.0",
+    "husky": "^2.3.0",
+    "lint-staged": "^8.1.7",
+    "prettier": "^1.17.1",
+    "tslint": "^5.17.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-config-standard": "^8.0.1",
     "tslint-eslint-rules": "^5.4.0",
     "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "^3.4.2"
+    "typescript": "^3.5.1"
   }
 }
