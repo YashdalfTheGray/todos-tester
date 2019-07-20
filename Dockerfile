@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node
 
 # chrome dependencies
 RUN apt-get update && \

@@ -259,7 +259,7 @@ describe('add todo', () => {
     await page.close();
   });
 
-  test.only('add dialog actually adds a todo [@addtodo]', async () => {
+  test('add dialog actually adds a todo [@addtodo]', async () => {
     const { TEST_URL } = process.env;
     const todos = await getAllTodos();
 
