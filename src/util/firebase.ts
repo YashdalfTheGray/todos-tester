@@ -14,7 +14,7 @@ export function initFirebase() {
     FIREBASE_API_KEY,
     FIREBASE_PROJECT_ID,
     FIREBASE_MESSAGING_ID,
-    FIREBASE_APP_ID
+    FIREBASE_APP_ID,
   } = process.env;
 
   return firebase.initializeApp({
@@ -24,7 +24,7 @@ export function initFirebase() {
     projectId: `${FIREBASE_PROJECT_ID}`,
     storageBucket: `${FIREBASE_PROJECT_ID}.appspot.com`,
     messagingSenderId: FIREBASE_MESSAGING_ID,
-    appId: FIREBASE_APP_ID
+    appId: FIREBASE_APP_ID,
   });
 }
 
@@ -43,13 +43,13 @@ export async function getAllTodos(): Promise<IFirebaseTodo[]> {
   const collection = getFirestoreCollection('todos');
 
   const snapshot = await collection.get();
-  snapshot.forEach(d =>
+  snapshot.forEach((d) =>
     docs.push({
       id: d.id,
       createdAt: d.get('createdAt').toDate(),
       content: d.get('content'),
       modifiedAt: d.get('modifiedAt').toDate(),
-      doneAt: d.get('doneAt') ? d.get('doneAt').toDate() : null
+      doneAt: d.get('doneAt') ? d.get('doneAt').toDate() : null,
     })
   );
 
@@ -63,7 +63,7 @@ export async function createTodo(content: string) {
     content,
     createdAt: new Date(),
     modifiedAt: new Date(),
-    doneAt: null
+    doneAt: null,
   });
 }
 

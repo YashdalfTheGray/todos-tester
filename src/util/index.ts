@@ -12,7 +12,7 @@ export {
   getFirestoreCollection,
   markTodoDone,
   markTodoUndone,
-  updateTodo
+  updateTodo,
 } from './firebase';
 
 export function setupEnvironment() {
@@ -26,7 +26,7 @@ export async function getBrowser(
 ): Promise<puppeteer.Browser> {
   const options: puppeteer.LaunchOptions = {
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    headless: isDocker() || process.env.DEBUG !== 'interactive'
+    headless: isDocker() || process.env.DEBUG !== 'interactive',
   };
 
   return puppeteer.launch(Object.assign(options, otherOptions));
@@ -53,7 +53,7 @@ export async function waitForNotLoading(
 ) {
   await page.waitForSelector(selector);
   await page.waitForSelector(selector, {
-    hidden: true
+    hidden: true,
   });
   return page;
 }
