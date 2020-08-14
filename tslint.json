@@ -5,9 +5,5 @@
   "rules": {
     "object-literal-sort-keys": false,
     "prettier": true
-  },
-  "rulesDirectory": [
-    "node_modules/tslint-eslint-rules/dist/rules",
-    "tslint-plugin-prettier"
-  ]
+  }
 }
