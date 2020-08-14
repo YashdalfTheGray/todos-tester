@@ -9,7 +9,8 @@
     "start": "npm test",
     "clean-build": "npx rimraf build",
     "clean-artifacts": "npx rimraf artifacts/**/*",
-    "clean": "npm run clean-build && npm run clean-artifacts"
+    "clean": "npm run clean-build && npm run clean-artifacts",
+    "tslint-conflict-check": "tslint-config-prettier-check ./tslint.json"
   },
   "repository": {
     "type": "git",
