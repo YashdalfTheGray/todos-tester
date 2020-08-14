@@ -17,7 +17,7 @@ import {
   openApp,
   screenshot,
   setupEnvironment,
-  waitForNotLoading
+  waitForNotLoading,
 } from './util';
 
 let browser: puppeteer.Browser;
@@ -59,7 +59,7 @@ describe('list todos', () => {
 
   test('only shows open todos when toggled [@todoslist, @readonly]', async () => {
     const { TEST_URL } = process.env;
-    const filteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
+    const filteredTodos = (await getAllTodos()).filter((t) => !t.doneAt);
 
     const page = await openApp(browser, TEST_URL);
     await waitForNotLoading(page);
@@ -81,7 +81,7 @@ describe('list todos', () => {
 describe('todo', () => {
   test('marks itself done [@todo]', async () => {
     const { TEST_URL } = process.env;
-    const prevFilteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
+    const prevFilteredTodos = (await getAllTodos()).filter((t) => !t.doneAt);
 
     const page = await openApp(browser, TEST_URL);
     await waitForNotLoading(page);
@@ -90,7 +90,7 @@ describe('todo', () => {
     await waitForNotLoading(page);
     await screenshot(page, resolve(process.cwd(), './artifacts/todo-done.png'));
 
-    const currFilteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
+    const currFilteredTodos = (await getAllTodos()).filter((t) => !t.doneAt);
     expect(currFilteredTodos).toHaveLength(prevFilteredTodos.length - 1);
     await page.close();
     await markTodoUndone(todo.id);
@@ -98,7 +98,7 @@ describe('todo', () => {
 
   test('marks itself undone [@todo]', async () => {
     const { TEST_URL } = process.env;
-    const prevFilteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
+    const prevFilteredTodos = (await getAllTodos()).filter((t) => !t.doneAt);
 
     await markTodoDone(todo.id);
     const page = await openApp(browser, TEST_URL);
@@ -112,7 +112,7 @@ describe('todo', () => {
       resolve(process.cwd(), './artifacts/todo-undone.png')
     );
 
-    const currFilteredTodos = (await getAllTodos()).filter(t => !t.doneAt);
+    const currFilteredTodos = (await getAllTodos()).filter((t) => !t.doneAt);
     expect(currFilteredTodos).toHaveLength(prevFilteredTodos.length);
     await page.close();
   });
@@ -171,14 +171,14 @@ describe('add todo', () => {
     oldTodos: IFirebaseTodo[]
   ) {
     const todoDiff = newTodos.filter(
-      nt => !oldTodos.map(ot => ot.id).includes(nt.id)
+      (nt) => !oldTodos.map((ot) => ot.id).includes(nt.id)
     );
 
     if (todoDiff.length === 0) {
       return;
     }
 
-    return Promise.all(todoDiff.map(t => deleteTodo(t.id)));
+    return Promise.all(todoDiff.map((t) => deleteTodo(t.id)));
   }
 
   test('add dialog opens [@addtodo, @readonly]', async () => {
