@@ -8,7 +8,9 @@ This project relies on Docker but can also be run outside of Docker. You will ne
 
 The first thing to do is to create a file in the project directory called `.env` and add some keys to it. The keys are listed below. The firebase keys are the same ones that you used to set up [the webapp](https://github.com/YashdalfTheGray/todos) that this tester goes with.
 
-The `DEBUG` variable has 3 possible values, `none` which only creates a `manifest.json`, `screenshot` which will take screenshots at the end of each test and `interactive` which will take screenshots and run puppeteer in non-headless mode. The interactive mode doesn't work under Docker so it will be ignored.
+The `DEBUG` variable has 3 possible values, `none` which runs silently, `screenshot` which will take screenshots at the end of each test and `interactive` which will take screenshots and run puppeteer in non-headless mode. The interactive mode doesn't work under Docker so it will be ignored. The default value for `DEBUG` is `none`.
+
+**NOTE** - If you don't include the `TEST_URL` environment variable, Jest may fail with a cryptic error.
 
 ```
 TEST_URL=<server_url>
@@ -44,3 +46,4 @@ Then you can run `docker diff <name_set_in_run_command>`. This command will comp
 -   [Faker Docs](https://github.com/marak/Faker.js/)
 -   [`docker run` options](https://docs.docker.com/engine/reference/commandline/run/)
 -   [Difference between Chromium and Chrome](https://www.howtogeek.com/202825/what%E2%80%99s-the-difference-between-chromium-and-chrome/)
+-   [Interesting issue with Jest's `testEnvironment` and Firebase](https://github.com/firebase/firebase-js-sdk/issues/3096)
