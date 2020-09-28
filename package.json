@@ -33,7 +33,8 @@
     ]
   },
   "jest": {
-    "testRegex": "build/(.+)\\.spec\\.jsx?$"
+    "testRegex": "build/(.+)\\.spec\\.jsx?$",
+    "testEnvironment": "node"
   },
   "dependencies": {
     "@types/dotenv": "^8.2.0",
