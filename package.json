@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@types/dotenv": "^8.2.0",
-    "@types/faker": "^5.5.0",
+    "@types/faker": "^5.5.3",
     "@types/jest": "^26.0.22",
     "@types/puppeteer": "^5.4.3",
     "dotenv": "^8.2.0",
