@@ -10,7 +10,8 @@
     "clean-build": "npx rimraf build",
     "clean-artifacts": "npx rimraf artifacts/**/*",
     "clean": "npm run clean-build && npm run clean-artifacts",
-    "tslint-conflict-check": "tslint-config-prettier-check ./tslint.json"
+    "tslint-conflict-check": "tslint-config-prettier-check ./tslint.json",
+    "lint-staged": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -22,11 +23,6 @@
     "url": "https://github.com/YashdalfTheGray/todos-tester/issues"
   },
   "homepage": "https://github.com/YashdalfTheGray/todos-tester#readme",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,md}": [
       "prettier --write"
@@ -49,7 +45,7 @@
     "puppeteer": "^5.4.0"
   },
   "devDependencies": {
-    "husky": "^4.3.0",
+    "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "tslint": "^6.1.3",
