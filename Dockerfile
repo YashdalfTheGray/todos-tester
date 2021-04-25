@@ -12,7 +12,7 @@ RUN apt-get update && \
 RUN mkdir -p /usr/app
 WORKDIR /usr/app
 
-COPY package.json /usr/app/
+COPY package.json package-lock.json /usr/app/
 RUN npm install
 
 COPY . /usr/app
