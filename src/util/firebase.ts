@@ -10,22 +10,26 @@ export interface IFirebaseTodo {
 }
 
 export function initFirebase() {
-  const {
-    FIREBASE_API_KEY,
-    FIREBASE_PROJECT_ID,
-    FIREBASE_MESSAGING_ID,
-    FIREBASE_APP_ID,
-  } = process.env;
+  if (firebase.apps.length === 0) {
+    const {
+      FIREBASE_API_KEY,
+      FIREBASE_PROJECT_ID,
+      FIREBASE_MESSAGING_ID,
+      FIREBASE_APP_ID,
+    } = process.env;
 
-  return firebase.initializeApp({
-    apiKey: FIREBASE_API_KEY,
-    authDomain: `${FIREBASE_PROJECT_ID}.firebaseapp.com`,
-    databaseURL: `https://${FIREBASE_PROJECT_ID}.firebaseio.com`,
-    projectId: `${FIREBASE_PROJECT_ID}`,
-    storageBucket: `${FIREBASE_PROJECT_ID}.appspot.com`,
-    messagingSenderId: FIREBASE_MESSAGING_ID,
-    appId: FIREBASE_APP_ID,
-  });
+    return firebase.initializeApp({
+      apiKey: FIREBASE_API_KEY,
+      authDomain: `${FIREBASE_PROJECT_ID}.firebaseapp.com`,
+      databaseURL: `https://${FIREBASE_PROJECT_ID}.firebaseio.com`,
+      projectId: `${FIREBASE_PROJECT_ID}`,
+      storageBucket: `${FIREBASE_PROJECT_ID}.appspot.com`,
+      messagingSenderId: FIREBASE_MESSAGING_ID,
+      appId: FIREBASE_APP_ID,
+    });
+  }
+
+  return firebase.app();
 }
 
 export function getFirestore() {
