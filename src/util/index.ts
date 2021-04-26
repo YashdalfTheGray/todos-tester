@@ -15,6 +15,10 @@ export {
   updateTodo,
 } from './firebase';
 
+export type AllPuppeteerLaunchOptions = puppeteer.LaunchOptions &
+  puppeteer.BrowserLaunchArgumentOptions &
+  puppeteer.BrowserConnectOptions;
+
 export function setupEnvironment() {
   if (!isDocker()) {
     dotenv.config();
@@ -22,9 +26,9 @@ export function setupEnvironment() {
 }
 
 export async function getBrowser(
-  otherOptions?: Partial<puppeteer.LaunchOptions>
+  otherOptions?: Partial<AllPuppeteerLaunchOptions>
 ): Promise<puppeteer.Browser> {
-  const options: puppeteer.LaunchOptions = {
+  const options: AllPuppeteerLaunchOptions = {
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
     headless: isDocker() || process.env.DEBUG !== 'interactive',
   };

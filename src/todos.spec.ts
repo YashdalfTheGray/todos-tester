@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 
 import { lorem } from 'faker';
-import { firestore } from 'firebase';
+import firebase from 'firebase';
 import puppeteer from 'puppeteer';
 
 import {
@@ -21,7 +21,7 @@ import {
 } from './util';
 
 let browser: puppeteer.Browser;
-let todo: firestore.DocumentReference;
+let todo: firebase.firestore.DocumentReference;
 
 jest.setTimeout(10000);
 
