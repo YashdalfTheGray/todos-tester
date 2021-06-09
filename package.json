@@ -41,7 +41,7 @@
     "firebase": "^8.6.3",
     "is-docker": "^2.2.1",
     "jest": "^27.0.3",
-    "puppeteer": "^9.1.1"
+    "puppeteer": "^10.0.0"
   },
   "devDependencies": {
     "husky": "^6.0.0",
