@@ -44,7 +44,7 @@
     "puppeteer": "^10.1.0"
   },
   "devDependencies": {
-    "husky": "^6.0.0",
+    "husky": "^7.0.1",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.2",
     "tslint": "^6.1.3",
