@@ -1,4 +1,4 @@
-FROM node:lts
+FROM node
 
 # chrome dependencies
 RUN apt-get update && \
