@@ -33,13 +33,12 @@
     "testEnvironment": "node"
   },
   "dependencies": {
-    "@types/dotenv": "^8.2.0",
     "@types/faker": "^5.5.8",
     "@types/jest": "^27.0.1",
     "dotenv": "^10.0.0",
     "faker": "^5.5.3",
-    "firebase": "^8.7.1",
-    "is-docker": "^2.2.1",
+    "firebase": "^9.0.2",
+    "is-docker": "^3.0.0",
     "jest": "^27.0.6",
     "puppeteer": "^10.2.0"
   },
