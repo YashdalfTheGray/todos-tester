@@ -39,7 +39,7 @@
     "faker": "^5.5.3",
     "firebase": "^9.0.2",
     "is-docker": "^3.0.0",
-    "jest": "^27.0.6",
+    "jest": "^27.2.3",
     "puppeteer": "^10.2.0"
   },
   "devDependencies": {
