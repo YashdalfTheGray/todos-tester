@@ -33,7 +33,7 @@
     "testEnvironment": "node"
   },
   "dependencies": {
-    "@types/faker": "^5.5.8",
+    "@types/faker": "^5.5.9",
     "@types/jest": "^27.0.2",
     "dotenv": "^10.0.0",
     "faker": "^5.5.3",
