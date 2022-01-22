@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 
 import { lorem } from 'faker';
-import firebase from 'firebase';
+import { DocumentReference, disableNetwork } from 'firebase/firestore';
 import puppeteer from 'puppeteer';
 
 import {
@@ -21,7 +21,7 @@ import {
 } from './util';
 
 let browser: puppeteer.Browser;
-let todo: firebase.firestore.DocumentReference;
+let todo: DocumentReference;
 
 jest.setTimeout(10000);
 
@@ -35,7 +35,7 @@ beforeAll(async () => {
 afterAll(async () => {
   await deleteTodo(todo.id);
   const firestoreDb = getFirestore();
-  await firestoreDb.disableNetwork();
+  await disableNetwork(firestoreDb);
   return browser.close();
 });
 
