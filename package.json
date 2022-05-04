@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@types/faker": "5.5.9",
-    "@types/jest": "^27.4.1",
+    "@types/jest": "^27.5.0",
     "dotenv": "^16.0.0",
     "faker": "5.5.3",
     "firebase": "^9.6.11",
