@@ -34,12 +34,12 @@
   },
   "dependencies": {
     "@types/faker": "5.5.9",
-    "@types/jest": "^28.1.1",
+    "@types/jest": "^28.1.4",
     "dotenv": "^16.0.1",
     "faker": "5.5.3",
     "firebase": "^9.6.11",
     "is-docker": "^3.0.0",
-    "jest": "^28.1.1",
+    "jest": "^28.1.2",
     "puppeteer": "^14.1.1"
   },
   "devDependencies": {
@@ -50,6 +50,6 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-config-standard": "^9.0.0",
     "tslint-plugin-prettier": "^2.3.0",
-    "typescript": "^4.6.4"
+    "typescript": "^4.7.4"
   }
 }
