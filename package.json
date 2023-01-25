@@ -34,12 +34,12 @@
   },
   "dependencies": {
     "@types/faker": "5.5.9",
-    "@types/jest": "^29.2.5",
+    "@types/jest": "^29.4.0",
     "dotenv": "^16.0.3",
     "faker": "5.5.3",
     "firebase": "^9.15.0",
     "is-docker": "^3.0.0",
-    "jest": "^29.3.1",
+    "jest": "^29.4.0",
     "puppeteer": "^19.5.2"
   },
   "devDependencies": {
