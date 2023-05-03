@@ -37,7 +37,7 @@
     "@types/jest": "^29.5.1",
     "dotenv": "^16.0.3",
     "faker": "5.5.3",
-    "firebase": "^9.20.0",
+    "firebase": "^9.21.0",
     "is-docker": "^3.0.0",
     "jest": "^29.5.0",
     "puppeteer": "^19.8.3"
